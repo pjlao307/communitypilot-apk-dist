@@ -20,7 +20,7 @@ Usage
 In order to switch between repositories on your EON that repository will need to already be cloned onto your EON.
 
 Each repository that you want to be able to switch to will need to be cloned into directory name in the following format:
-```/data/openpilot.***USERNAME***```
+```/data/openpilot.USERNAME```
 where USERNAME is the github username of the owner of the repository.
 
 For example, for the comma.ai openpilot you would run this command:
