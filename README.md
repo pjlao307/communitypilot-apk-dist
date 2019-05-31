@@ -1,4 +1,4 @@
-CommunityPilot APK Distrubution
+CommunityPilot APK Distribution
 ======
 This repository contains the pre-compiled custom openpilot apk (offroad) that includes additional functionality.
 
