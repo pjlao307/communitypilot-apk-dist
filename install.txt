@@ -1,0 +1,62 @@
+#!/usr/bin/env python
+import os
+import json
+import hashlib
+
+script_dir = "/data/communitypilot_scripts"
+
+def sha256_checksum(filename, block_size=65536):
+  sha256 = hashlib.sha256()
+  with open(filename, 'rb') as f:
+    for block in iter(lambda: f.read(block_size), b''):
+      sha256.update(block)
+  return sha256.hexdigest()
+
+def check_file(url, fhash, filename):
+  try:
+    assert sha256_checksum(filename).lower() == fhash.lower()
+    print("already downloaded %s" % url)
+    return
+  except Exception:
+    pass
+
+  os.system("curl -O %s" % url)
+  os.system("curl -L %s -o %s/%s" % (url, script_dir, filename))
+  fn = url.split("/")[-1]
+  assert sha256_checksum(fn).lower() == fhash.lower()
+  print("hash check pass")
+
+def download(url,filename):
+  os.system("curl -L %s -o %s/%s" % (url, script_dir, filename))
+
+def load_config(url):
+  os.system("curl -L %s -o %s/config.json" % (url, script_dir))
+
+def run_installer(url):
+  os.system("curl -L %s | bash -s '%s'" % (url, script_dir))
+
+def install_script(url):
+  os.system("curl -L %s -o %s/switchRepo.sh" % (url, script_dir))
+
+path_exists = os.path.isdir(script_dir)
+if not path_exists:
+ print "Creating folder"
+ os.system("mkdir %s" % script_dir)
+
+print "Retrieving configuration"
+load_config("http://192.168.2.17/react/config.json")
+config = json.load(open("%s/config.json" % script_dir))
+
+print "Downloading APK"
+
+file_exists = os.path.exists("%s/ai.comma.plus.offroad.apk" % script_dir)
+if not file_exists:
+  download(config['apk_url'], "ai.comma.plus.offroad.apk")
+
+check_file(config['apk_url'], config['apk_hash'], "ai.comma.plus.offroad.apk")
+
+print "Running installer"
+run_installer(config['installer'])
+
+print "Installing script"
+install_script(config['script_url'])
