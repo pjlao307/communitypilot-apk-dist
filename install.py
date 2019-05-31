@@ -57,3 +57,5 @@ run_installer(config['installer'])
 
 print "Installing script"
 install_script(config['script_url'])
+
+print "Installation complete - Reboot your EON"

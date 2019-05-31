@@ -8,4 +8,3 @@ mv /data/openpilot /data/openpilot.$username
 ln -s /data/openpilot.$username /data/openpilot
 cp $1/ai.comma.plus.offroad.apk /data/openpilot/apk/
 echo "[{\"name\":\"openpilot\",\"user\":\"$username\",\"branch\":\"$branch\"}]" > /data/params/d/CommunityPilotConfig
-echo "Done.  Reboot your EON"
