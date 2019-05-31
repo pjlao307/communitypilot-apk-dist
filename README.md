@@ -24,6 +24,7 @@ Each repository that you want to be able to switch to will need to be cloned int
 where USERNAME is the github username of the owner of the repository.
 
 For example, for the comma.ai openpilot you would run this command:
+
 ```git clone https://github.com/commaai/openpilot.git /data/openpilot.commaai```
 
 This USERNAME should match the Github username field when you add the repository from the GUI.
