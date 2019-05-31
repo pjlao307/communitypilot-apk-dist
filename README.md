@@ -44,3 +44,8 @@ There is a known issue in the Settings > Account screen where it does not allow 
 Contribution
 ------
 Pull requests are welcome.  Please visit the source repository at https://github.com/pjlao307/openpilot-apk to submit PRs or issues.
+
+Acknowledgment
+------
+**BIG THANKS to [comma.ai](https://comma.ai)** for providing an awesome development kit platform!
+
