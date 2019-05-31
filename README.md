@@ -35,6 +35,8 @@ This USERNAME should match the Github username field when you add the repository
 
 [![](https://github.com/pjlao307/communitypilot-apk-dist/raw/master/images/add_repo.jpg)](#)
 
+When you switch to a different fork logging information is stored in a log file in `/data/communitypilot_scripts/cp.log` that you can view to see what has been done.
+
 Known Issues
 ------
 There is a known issue in the Settings > Account screen where it does not allow you to log into your Google account but instead shows you a "Device Paired: Yes" setting.  This issue has been submitted to the official openpilot-apk repository.
