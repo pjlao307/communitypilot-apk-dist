@@ -44,16 +44,13 @@ if not path_exists:
  os.system("mkdir %s" % script_dir)
 
 print "Retrieving configuration"
-load_config("http://192.168.2.17/react/config.json")
+load_config("https://raw.githubusercontent.com/pjlao307/communitypilot-apk-dist/master/config.json")
 config = json.load(open("%s/config.json" % script_dir))
-
-print "Downloading APK"
 
 file_exists = os.path.exists("%s/ai.comma.plus.offroad.apk" % script_dir)
 if not file_exists:
+  print "Downloading APK"
   download(config['apk_url'], "ai.comma.plus.offroad.apk")
-
-check_file(config['apk_url'], config['apk_hash'], "ai.comma.plus.offroad.apk")
 
 print "Running installer"
 run_installer(config['installer'])
