@@ -1,3 +1,7 @@
+<p align="center">
+<img src="https://github.com/pjlao307/communitypilot-apk-dist/raw/master/images/header.jpg">
+</p>
+
 CommunityPilot APK Distribution
 ======
 This repository contains the pre-compiled custom openpilot apk (offroad) that includes additional functionality.
