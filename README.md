@@ -31,6 +31,10 @@ This USERNAME should match the Github username field when you add the repository
 
 [![](https://github.com/pjlao307/communitypilot-apk-dist/raw/master/images/add_repo.jpg)](#)
 
+Known Issues
+------
+There is a known issue in the Settings > Account screen where it does not allow you to log into your Google account but instead shows you a "Device Paired: Yes" setting.  This issue has been submitted to the official openpilot-apk repository.
+
 Contribution
 ------
 Pull requests are welcome.  Please visit the source repository at https://github.com/pjlao307/openpilot-apk to submit PRs or issues.
