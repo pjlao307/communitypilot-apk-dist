@@ -32,4 +32,12 @@ then
   ln -sf /data/openpilot.$2 /data/openpilot
   echo "[ $now ] Done, rebooting"
   service call power 16 i32 0 i32 0 i32 1
+elif [ $1 = 'update' ]
+then
+  now=`date +"%Y/%m/%d %T"`
+  echo "[ $now ] Updating APK from $2"
+  curl -L $2 -o /data/communitypilot_scripts/ai.comma.plus.offroad.apk
+  cp /data/communitypilot_scripts/ai.comma.plus.offroad.apk /data/openpilot/apk/
+  echo "[ $now ] Done"
+  service call power 16 i32 0 i32 0 i32 1
 fi
