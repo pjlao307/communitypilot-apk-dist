@@ -43,7 +43,7 @@ There is a known issue in the Settings > Account screen where it does not allow 
 
 Contribution
 ------
-Pull requests are welcome.  Please visit the source repository at https://github.com/pjlao307/openpilot-apk to submit PRs or issues.
+Pull requests are welcome.  Please visit the source repository at https://github.com/pjlao307/openpilot-apks to submit PRs or issues.
 
 Acknowledgment
 ------
