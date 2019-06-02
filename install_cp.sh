@@ -14,4 +14,7 @@ then
   ln -s /data/openpilot.$username /data/openpilot
   cp $2/ai.comma.plus.offroad.apk /data/openpilot/apk/
   echo "{\"apk_hash\":\"$3\",\"config_url\":\"$4\",\"installer\":\"$5\",\"apk_url\":\"$6\",\"repos\":[{\"name\":\"openpilot\",\"user\":\"$username\",\"branch\":\"$branch\"}]}" > /data/params/d/CommunityPilotConfig
+
+  #We do this because if the repo auto updates the APK gets reverted
+  sed -i 's/cd \/data\/openpilot/cd \/data\/openpilot\ncp \/data\/communitypilot_scripts\/ai\.comma\.plus\.offroad\.apk \/data\/openpilot\/apk\//' /data/data/com.termux/files/continue.sh
 fi
