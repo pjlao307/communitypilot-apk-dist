@@ -41,6 +41,8 @@ Known Issues
 ------
 There is a known issue in the Settings > Account screen where it does not allow you to log into your Google account but instead shows you a "Device Paired: Yes" setting.  This issue has been submitted to the official openpilot-apk repository.
 
+When switching to a branch that has an update, the APK will revert to the version contained in the repository so when the EON is rebooted you lose the fork switching functionality until you reboot a 2nd time.
+
 Contribution
 ------
 Pull requests are welcome.  Please visit the source repository at https://github.com/pjlao307/openpilot-apks to submit PRs or issues.
