@@ -6,7 +6,7 @@ CommunityPilot APK Distribution
 ======
 This repository contains the pre-compiled custom openpilot apk (offroad) that includes additional functionality.
 
-Current functionality inlcude:
+Current functionality include:
 * Ability to switch between different repositories loaded on the EON.
 
 Installation
