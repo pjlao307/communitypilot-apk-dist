@@ -6,7 +6,7 @@ CommunityPilot APK Distribution
 ======
 This repository contains the pre-compiled custom openpilot apk (offroad) that includes additional functionality.
 
-Current functionality inlcude:
+Current functionality include:
 * Ability to switch between different repositories loaded on the EON.
 
 Installation
@@ -40,6 +40,8 @@ When you switch to a different fork logging information is stored in a log file 
 Known Issues
 ------
 There is a known issue in the Settings > Account screen where it does not allow you to log into your Google account but instead shows you a "Device Paired: Yes" setting.  This issue has been submitted to the official openpilot-apk repository.
+
+When switching to a branch that has an update, the APK will revert to the version contained in the repository so when the EON is rebooted you lose the fork switching functionality until you reboot a 2nd time.
 
 Contribution
 ------
