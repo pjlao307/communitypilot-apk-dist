@@ -13,7 +13,7 @@ if file_exists:
   loaded = True if f.read().rstrip('\r\n') == '1' else False
   f.close()
 else:
-  username = subprocess.check_output("ls -ld /data/openpilot | perl -lne 'print $1 if /-\> (.*)/'", shell=True)
+  username = subprocess.check_output("ls -ld /data/openpilot | perl -lne 'print $1 if /-\> \/data\/(.*)/'", shell=True)
   os.system("echo %s > %s" % (username.rstrip('\r\n'), last_boot))
   os.system("echo 1 > %s" % apk_loaded)
   loaded = True
