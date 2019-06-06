@@ -44,7 +44,10 @@ print "Retrieving configuration"
 load_config("https://raw.githubusercontent.com/pjlao307/communitypilot-apk-dist/master/config.json")
 config = json.load(open("%s/config.json" % script_dir))
 
-print "Updating script"
+print "Downloading APK"
+download(config['apk_url'], "ai.comma.plus.offroad.apk")
+
+print "Updating continue.sh"
 os.system("sed -i 's/cd \/data\/openpilot/python \/data\/communitypilot_scripts\/checkLastBoot.py    \\ncd \/data\/openpilot/' /data/data/com.termux/files/continue.sh")
 
 print "Installing scripts"
