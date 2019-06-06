@@ -37,23 +37,18 @@ def run_installer(url,apk_hash,config_url,apk_url):
 
 path_exists = os.path.isdir(script_dir)
 if not path_exists:
-  print "Creating folder"
-  os.system("mkdir %s" % script_dir)
+ print "Creating folder"
+ os.system("mkdir %s" % script_dir)
 
 print "Retrieving configuration"
 load_config("https://raw.githubusercontent.com/pjlao307/communitypilot-apk-dist/master/config.json")
 config = json.load(open("%s/config.json" % script_dir))
 
-file_exists = os.path.exists("%s/ai.comma.plus.offroad.apk" % script_dir)
-
-print "Downloading APK"
-download(config['apk_url'], "ai.comma.plus.offroad.apk")
-
-print "Running installer"
-run_installer(config['installer'],config['apk_hash'],config['config_url'],config['apk_url'])
+print "Updating script"
+os.system("sed -i 's/cd \/data\/openpilot/python \/data\/communitypilot_scripts\/checkLastBoot.py    \\ncd \/data\/openpilot/' /data/data/com.termux/files/continue.sh")
 
 print "Installing scripts"
 download(config['script_url'],'switchRepo.sh')
 download(config['lastboot_url'],'checkLastBoot.py')
 
-print "Installation complete - Reboot your EON"
+print "Update complete - Reboot your EON"

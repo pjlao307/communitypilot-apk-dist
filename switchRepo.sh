@@ -40,4 +40,7 @@ then
   cp /data/communitypilot_scripts/ai.comma.plus.offroad.apk /data/openpilot/apk/
   echo "[ $now ] Done"
   service call power 16 i32 0 i32 0 i32 1
+elif [ $1 = 'currentrepo' ]
+then
+  ls -ld /data/openpilot | perl -lne 'print $1 if /-\> \/data\/(.*)/'
 fi
