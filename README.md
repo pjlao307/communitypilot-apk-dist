@@ -8,6 +8,7 @@ This repository contains the pre-compiled custom openpilot apk (offroad) that in
 
 Current functionality include:
 * Ability to switch between different repositories loaded on the EON.
+* Revert from a bad repository not loading (goes to a black EON screen).  If you get a black screen after switching to a repository, reboot the EON again and it will revert to the last successfully booted repository.
 
 Installation
 ------
