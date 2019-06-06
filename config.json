@@ -4,5 +4,6 @@
   "apk_hash": "6d495289bb036d03aa02b76f96d3d414090138d381977192ec513fc0bc32c870",
   "installer": "https://raw.githubusercontent.com/pjlao307/communitypilot-apk-dist/master/install_cp.sh",
   "script_url": "https://raw.githubusercontent.com/pjlao307/communitypilot-apk-dist/master/switchRepo.sh",
-  "lastboot_url": "https://github.com/pjlao307/communitypilot-apk-dist/raw/master/checkLastBoot.py"
+  "lastboot_url": "https://github.com/pjlao307/communitypilot-apk-dist/raw/master/checkLastBoot.py",
+  "update_url": "https://github.com/pjlao307/communitypilot-apk-dist/raw/master/update.py"
 }
