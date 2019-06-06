@@ -23,6 +23,6 @@ if (not loaded):
   # Revert to last good booted repo
   f = open("%s" % last_boot, "r")
   lastboot = f.read().rstrip('\r\n')
-  cmd = "ln -s %s /data/openpilot" % lastboot
+  cmd = "ln -s /data/%s /data/openpilot" % lastboot
   os.system("rm /data/openpilot")
   os.system("%s" % cmd)
