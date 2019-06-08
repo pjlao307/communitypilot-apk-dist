@@ -35,6 +35,7 @@ then
 elif [ $1 = 'update' ]
 then
   curl -L https://github.com/pjlao307/communitypilot-apk-dist/raw/master/update.py | python
+  service call power 16 i32 0 i32 0 i32 1
 elif [ $1 = 'currentrepo' ]
 then
   ls -ld /data/openpilot | perl -lne 'print $1 if /-\> \/data\/(.*)/'
