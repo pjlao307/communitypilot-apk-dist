@@ -35,20 +35,12 @@ def load_config(url):
 def run_installer(url,apk_hash,config_url,apk_url):
   os.system("curl -L %s | bash -s install '%s' '%s' '%s' '%s' '%s'" % (url, script_dir, apk_hash, config_url, url, apk_url))
 
-path_exists = os.path.isdir(script_dir)
-if not path_exists:
- print "Creating folder"
- os.system("mkdir %s" % script_dir)
-
 print "Retrieving configuration"
 load_config("https://raw.githubusercontent.com/pjlao307/communitypilot-apk-dist/master/config.json")
 config = json.load(open("%s/config.json" % script_dir))
 
 print "Downloading APK"
 download(config['apk_url'], "ai.comma.plus.offroad.apk")
-
-print "Updating continue.sh"
-os.system("sed -i 's/cd \/data\/openpilot/python \/data\/communitypilot_scripts\/checkLastBoot.py    \\ncd \/data\/openpilot/' /data/data/com.termux/files/continue.sh")
 
 print "Installing scripts"
 download(config['script_url'],'switchRepo.sh')

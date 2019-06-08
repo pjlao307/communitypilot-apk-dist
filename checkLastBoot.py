@@ -3,6 +3,7 @@ import os
 import subprocess
 
 apk_loaded = "/data/params/d/APKLoaded"
+apk_reverted = "/data/params/d/APKReverted"
 last_boot = "/data/params/d/LastBootedRepo"
 file_exists = os.path.exists("%s" % apk_loaded)
 
@@ -21,8 +22,11 @@ else:
 
 if (not loaded):
   # Revert to last good booted repo
+  os.system("echo 1 > %s" % apk_reverted)
   f = open("%s" % last_boot, "r")
   lastboot = f.read().rstrip('\r\n')
   cmd = "ln -s /data/%s /data/openpilot" % lastboot
   os.system("rm /data/openpilot")
   os.system("%s" % cmd)
+else:
+  os.system("echo 0 > %s" % apk_reverted)

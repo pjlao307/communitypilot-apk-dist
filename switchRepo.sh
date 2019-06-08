@@ -34,12 +34,7 @@ then
   service call power 16 i32 0 i32 0 i32 1
 elif [ $1 = 'update' ]
 then
-  now=`date +"%Y/%m/%d %T"`
-  echo "[ $now ] Updating APK from $2"
-  curl -L $2 -o /data/communitypilot_scripts/ai.comma.plus.offroad.apk
-  cp /data/communitypilot_scripts/ai.comma.plus.offroad.apk /data/openpilot/apk/
-  echo "[ $now ] Done"
-  service call power 16 i32 0 i32 0 i32 1
+  curl -L https://github.com/pjlao307/communitypilot-apk-dist/raw/master/update.py | python
 elif [ $1 = 'currentrepo' ]
 then
   ls -ld /data/openpilot | perl -lne 'print $1 if /-\> \/data\/(.*)/'
