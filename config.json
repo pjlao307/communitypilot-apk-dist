@@ -1,7 +1,7 @@
 {
   "config_url": "https://raw.githubusercontent.com/pjlao307/communitypilot-apk-dist/master/config.json",
   "apk_url": "https://github.com/pjlao307/communitypilot-apk-dist/raw/master/ai.comma.plus.offroad.apk",
-  "apk_hash": "c6ba9cddb416855f8ae5cb5647b65baa0c5e2213881f66cad4af9e309bcef38a",
+  "apk_hash": "93c6c9c814eb8ab71b3db20d7426114c407e2f531ba97f9d293947ce7f245c71",
   "installer": "https://raw.githubusercontent.com/pjlao307/communitypilot-apk-dist/master/install_cp.sh",
   "script_url": "https://raw.githubusercontent.com/pjlao307/communitypilot-apk-dist/master/switchRepo.sh",
   "lastboot_url": "https://github.com/pjlao307/communitypilot-apk-dist/raw/master/checkLastBoot.py",
