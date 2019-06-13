@@ -21,8 +21,8 @@ then
   /data/data/com.termux/files/usr/bin/git checkout apk/ai.comma.plus.offroad.apk
 
   now=`date +"%Y/%m/%d %T"`
-  echo "[ $now ] Switching branch $4"
-  /data/data/com.termux/files/usr/bin/git checkout $4
+  echo "[ $now ] Switching branch $3"
+  /data/data/com.termux/files/usr/bin/git checkout $3
   echo "[ $now ] Copying APK to /data/openpilot.$2/apk/"
   cp /data/communitypilot_scripts/ai.comma.plus.offroad.apk /data/openpilot.$2/apk/
 
@@ -39,4 +39,31 @@ then
 elif [ $1 = 'currentrepo' ]
 then
   ls -ld /data/openpilot | perl -lne 'print $1 if /-\> \/data\/(.*)/'
+elif [ $1 = 'currentbranch' ]
+then
+  cd /data/openpilot
+  git branch | grep \* | cut -d ' ' -f2
+elif [ $1 = 'repobranch' ]
+then
+  cd /data/openpilot.$2
+  git branch | grep \* | cut -d ' ' -f2
+elif [ $1 = 'updaterepo' ]
+then
+  now=`date +"%Y/%m/%d %T"`
+  echo "Updating repository"
+  cd /data/openpilot.$2
+  git pull
+  echo "{\\\"status\\\": \\\"ok\\\"}"
+elif [ $1 = 'getbranches' ]
+then
+  cd /data/openpilot.$2
+  git branch -a | awk -F "/" '{gsub(/\*/,"",$0); gsub(/ /,"", $0); print $NF}' | awk '!NF || !seen[$0]++'
+elif [ $1 = 'repohasupdate' ]
+then
+  cd /data/openpilot.$2
+  if [ "$(git rev-parse HEAD)" != "$(git rev-parse @{u})" ]; then
+    echo "1"
+  else
+    echo "0"
+  fi
 fi
