@@ -57,6 +57,7 @@ file = "%s/ai.comma.plus.offroad.apk" % script_dir
 while not Done:
   if not hashMatched(file,config["apk_hash"]) and count < maxCount:
     print "Download failed, retrying (%s)" % count
+    download(config['apk_url'], "ai.comma.plus.offroad.apk")
     count += 1
   elif (count >= maxCount):
     print "Reached max retries, quitting"
