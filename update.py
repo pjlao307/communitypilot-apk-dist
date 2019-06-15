@@ -26,6 +26,13 @@ def check_file(url, fhash, filename):
   assert sha256_checksum(fn).lower() == fhash.lower()
   print("hash check pass")
 
+def hashMatched(filename, hash):
+  sha256 = sha256_checksum(filename)
+  if sha256 == hash:
+    return True
+  else:
+    return False
+
 def download(url,filename):
   os.system("curl -L %s -o %s/%s" % (url, script_dir, filename))
 
@@ -41,6 +48,22 @@ config = json.load(open("%s/config.json" % script_dir))
 
 print "Downloading APK"
 download(config['apk_url'], "ai.comma.plus.offroad.apk")
+
+print "Checking APK hash"
+count = 1
+maxCount = 5
+Done = False
+file = "%s/ai.comma.plus.offroad.apk" % script_dir
+while not Done:
+  if not hashMatched(file,config["apk_hash"]) and count < maxCount:
+    print "Download failed, retrying (%s)" % count
+    count += 1
+  elif (count >= maxCount):
+    print "Reached max retries, quitting"
+    Done = True
+  else:
+    print "Download successful"
+    Done = True
 
 print "Installing scripts"
 download(config['script_url'],'switchRepo.sh')
