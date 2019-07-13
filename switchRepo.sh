@@ -38,7 +38,12 @@ then
   service call power 16 i32 0 i32 0 i32 1
 elif [ $1 = 'currentrepo' ]
 then
-  ls -ld /data/openpilot | perl -lne 'print $1 if /-\> \/data\/(.*)/'
+  CURRENT=`ls -ld /data/openpilot | perl -lne 'print $1 if /-\> \/data\/(.*)/'`
+  if [ ! $CURRENT ]
+  then
+    CURRENT=`ls -ld /data/openpilot | perl -lne 'print $1 if /-\> (.*)/'`
+  fi  
+  echo $CURRENT
 elif [ $1 = 'currentbranch' ]
 then
   cd /data/openpilot
